@@ -19,3 +19,4 @@ dist/
 *.orig
 .DS_Store
 /CCountLines/count_lines_in_files
+/CppCountLines/count_lines
