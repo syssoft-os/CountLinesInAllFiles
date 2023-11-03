@@ -1,9 +1,9 @@
-Python:
+Python: 30 Lines
 time python count_lines_in_files.py ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172814
 Macbook (Intel): time real 24.993 user 4.821 sys 4.587
 
-C:
+C: 78 Lines
 gcc -o count_lines_in_files count_lines_in_files.c
 time ./count_lines_in_files ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172811
@@ -14,12 +14,23 @@ time ./count_lines_in_files ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172811
 Macbook (Intel): time real 31.59 user 26.617 sys 2.484
 
-Java:
+C++: 52 Lines
+g++ -std=c++17 -o count_lines count_lines.cpp
+time ./count_lines ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
+23172814
+Macbook (Intel): real 35.479 user 32.142 sys 2.321
+
+g++ -O3 -std=c++17 -o count_lines count_lines.cpp
+time ./count_lines ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
+23172814
+Macbook (Intel): real 6.997 user 4.189 sys 1.951
+
+Java: 37 Lines
 time java Main ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172814
 Macbook (Intel): time real 24.467 user 5.198 sys 6.386
 
-bash:
+bash: 1 Line
 time find ~/Desktop/Linux/linux-6.5.8 -type f -name "*.c" -exec cat {} \; | wc
 23172062
 Macbook (Intel): time real 1m29.978 user 23.615 sys 43.763
