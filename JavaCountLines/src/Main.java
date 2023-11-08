@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.*;
+import java.util.List;
 import java.util.stream.*;
 import java.util.regex.*;
 
@@ -12,9 +13,8 @@ public class Main {
     }
 
     public static long countLines(String fileName) throws IOException {
-        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
-            return lines.count();
-        }
+        List<String> allLines = Files.readAllLines(Paths.get(fileName));
+        return allLines.size();
     }
 
     public static long countLinesInAllFiles(String folderPath, String regex) throws IOException {
