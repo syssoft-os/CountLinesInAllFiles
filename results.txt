@@ -3,7 +3,7 @@ time python count_lines_in_files.py ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172814
 Macbook (Intel): time real 24.993 user 4.821 sys 4.587
 
-C: 78 Lines
+C: 78 Lines (char-based)
 gcc -o count_lines_in_files count_lines_in_files.c
 time ./count_lines_in_files ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172811
@@ -13,6 +13,12 @@ gcc -O3 -o count_lines_in_files count_lines_in_files.c
 time ./count_lines_in_files ~/Desktop/Linux/linux-6.5.8 ".*\.c$"
 23172811
 Macbook (Intel): time real 31.59 user 26.617 sys 2.484
+
+C: 85 Lines (block-based)
+gcc -O3 -o count_lines_in_files_block count_lines_in_files_block.c
+time ./count_lines_in_files_block ../../../linux/linux-6.6.1 ".*\.c$"
+23344108 (6.6.1)
+Mac Pro (Intel): real	0m5.188s user	0m0.723s sys	0m3.174s
 
 C++: 52 Lines
 g++ -std=c++17 -o count_lines count_lines.cpp
