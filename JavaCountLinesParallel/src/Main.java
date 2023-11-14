@@ -6,9 +6,9 @@ import java.util.regex.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        assert(args.length == 2);
+        assert (args.length == 2);
         // Regular expression ".*\.c$" matches any c source files
-        System.out.println(countLinesInAllFiles(args[0],args[1]));
+        System.out.println(countLinesInAllFiles(args[0], args[1]));
     }
 
     public static long countLines(String fileName) throws IOException {
@@ -19,8 +19,9 @@ public class Main {
 
     public static long countLinesInAllFiles(String folderPath, String regex) throws IOException {
         Pattern pattern = Pattern.compile(regex);
+        long totalLines = 0;
         try (Stream<Path> paths = Files.walk(Paths.get(folderPath))) {
-            return paths
+            return paths.parallel()
 //                    .peek(p -> System.out.println("Traversing: " + p.toString()))
                     .filter(Files::isRegularFile)
                     .filter(path -> pattern.matcher(path.toString()).matches())
