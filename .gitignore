@@ -20,3 +20,5 @@ dist/
 .DS_Store
 /CCountLines/count_lines_in_files
 /CppCountLines/count_lines
+/CCountLines/count_lines_in_files_block
+/CCountLines/count_lines_in_files_char
