@@ -6,8 +6,8 @@ solutions for various programming languages in a dialog with an AI buddy sitting
 
 Programming languages used:
 
-- Java
-- C
+- Java (Java Streams; sequential and parallel)
+- C (reading single chars and reading blocks of chars)
 - C++ (standard version C++17)
 - Python
 - Bash
