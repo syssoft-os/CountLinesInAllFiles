@@ -19,7 +19,6 @@ public class Main {
 
     public static long countLinesInAllFiles(String folderPath, String regex) throws IOException {
         Pattern pattern = Pattern.compile(regex);
-        long totalLines = 0;
         try (Stream<Path> paths = Files.walk(Paths.get(folderPath))) {
             return paths.parallel()
 //                    .peek(p -> System.out.println("Traversing: " + p.toString()))
