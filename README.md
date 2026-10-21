@@ -8,6 +8,7 @@ Programming languages used:
 
 - Java (Java Streams; sequential and parallel)
 - C (reading single chars and reading blocks of chars; block size 4 KB by default, `-DBUFFER_SIZE=65536` for 64 KB)
+- C stripped down (POSIX `open`/`read`, 64 KB buffer, `readdir` types instead of `stat`, no stdio on the read path)
 - C++ (standard version C++17)
 - Go (standard library only: `filepath.WalkDir`, `regexp`, block-wise reads)
 - Rust (crates `walkdir` and `regex`, block-wise reads; build with `cargo build --release`)

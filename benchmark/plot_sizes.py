@@ -25,6 +25,7 @@ VARIANTS = [
     ("C++",                         "Compiled", "CppCountLines/count_lines.cpp"),
     ("C char-wise",                 "Compiled", "CCountLines/count_lines_in_files_char.c"),
     ("C block-wise",                "Compiled", "CCountLines/count_lines_in_files_block.c"),
+    ("C raw read",                  "Compiled", "CCountLines/count_lines_in_files_raw.c"),
     ("Go",                          "Compiled", "GoCountLines/count_lines.go"),
     ("Rust",                        "Compiled", "RustCountLines/src/main.rs"),
 ]
@@ -48,7 +49,7 @@ sizes = [r[0] for r in rows]
 colors = [COLOR[r[2]] for r in rows]
 
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 12})
-fig, ax = plt.subplots(figsize=(11, 6), dpi=200)
+fig, ax = plt.subplots(figsize=(11, 6.4), dpi=200)
 fig.patch.set_facecolor("white")
 ax.set_facecolor("white")
 

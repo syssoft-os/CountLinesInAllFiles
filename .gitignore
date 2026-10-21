@@ -22,3 +22,4 @@ dist/
 /CppCountLines/count_lines
 /CCountLines/count_lines_in_files_block
 /CCountLines/count_lines_in_files_char
+/CCountLines/count_lines_in_files_raw

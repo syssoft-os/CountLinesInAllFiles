@@ -31,6 +31,7 @@ FAMILY = {
     "C char-wise -O3": "Compiled",
     "C block-wise 4 KB -O3": "Compiled",
     "C block-wise 64 KB -O3": "Compiled",
+    "C raw read 64 KB -O3": "Compiled",
     "Go": "Compiled",
     "Rust --release": "Compiled",
 }
@@ -43,7 +44,7 @@ medians = [m for m, _ in rows]
 colors = [COLOR[FAMILY[k]] for k in labels]
 
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 12})
-fig, ax = plt.subplots(figsize=(11, 7.4), dpi=200)
+fig, ax = plt.subplots(figsize=(11, 7.8), dpi=200)
 fig.patch.set_facecolor("white")
 ax.set_facecolor("white")
 
