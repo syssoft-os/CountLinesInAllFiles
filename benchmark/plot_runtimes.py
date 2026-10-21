@@ -30,6 +30,8 @@ FAMILY = {
     "C char-wise -O0": "Compiled",
     "C char-wise -O3": "Compiled",
     "C block-wise -O3": "Compiled",
+    "Go": "Compiled",
+    "Rust --release": "Compiled",
 }
 COLOR = {"Shell pipeline": "#2a78d6", "Interpreter / VM": "#eb6834", "Compiled": "#1baf7a"}
 TEXT, MUTED, GRID = "#0b0b0b", "#52514e", "#e4e3df"
@@ -40,7 +42,7 @@ medians = [m for m, _ in rows]
 colors = [COLOR[FAMILY[k]] for k in labels]
 
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 12})
-fig, ax = plt.subplots(figsize=(11, 6.2), dpi=200)
+fig, ax = plt.subplots(figsize=(11, 7), dpi=200)
 fig.patch.set_facecolor("white")
 ax.set_facecolor("white")
 

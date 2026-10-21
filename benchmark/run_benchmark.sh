@@ -18,6 +18,9 @@ g++     -std=c++17 -o "$B/cpp_O0" CppCountLines/count_lines.cpp
 mkdir -p "$B/java" "$B/javap"
 javac -d "$B/java"  JavaCountLines/src/Main.java
 javac -d "$B/javap" JavaCountLinesParallel/src/Main.java
+go build -o "$B/go" GoCountLines/count_lines.go
+(cd RustCountLines && cargo build --release -q)
+cp RustCountLines/target/release/count_lines "$B/rust"
 printf '#!/bin/bash\nfind "$1" -type f -name "*.c" -exec cat {} \\; | wc -l\n' > "$B/oneliner_semicolon.sh"
 printf '#!/bin/bash\nfind "$1" -type f -name "*.c" -exec cat {} + | wc -l\n'   > "$B/oneliner_plus.sh"
 chmod +x "$B"/oneliner_*.sh
@@ -39,6 +42,8 @@ for rep in $(seq "$REPS"); do
   "$R" 'C char-wise -O0'              "$B/c_char_O0" "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'C char-wise -O3'              "$B/c_char"    "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'C block-wise -O3'             "$B/c_block"   "$L" '.*\.c$'                        >> "$OUT"; sleep 2
+  "$R" 'Go'                           "$B/go"        "$L" '.*\.c$'                        >> "$OUT"; sleep 2
+  "$R" 'Rust --release'               "$B/rust"      "$L" '.*\.c$'                        >> "$OUT"; sleep 2
 done
 rm -rf "$B"
 echo "wrote $OUT"

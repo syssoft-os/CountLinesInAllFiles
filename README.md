@@ -9,9 +9,13 @@ Programming languages used:
 - Java (Java Streams; sequential and parallel)
 - C (reading single chars and reading blocks of chars)
 - C++ (standard version C++17)
+- Go (standard library only: `filepath.WalkDir`, `regexp`, block-wise reads)
+- Rust (crates `walkdir` and `regex`, block-wise reads; build with `cargo build --release`)
 - Python
 - Bash
 
 More languages may follow.
 
 `results.txt` lists source code sizes and execution times on a typical Intel-based MacBook Pro.
+`benchmark/` contains a reproducible benchmark (`run_benchmark.sh`) plus the plot scripts and the
+latest results measured on an Apple M3 Max against the Linux 7.2.9 sources.

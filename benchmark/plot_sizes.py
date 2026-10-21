@@ -25,6 +25,8 @@ VARIANTS = [
     ("C++",                         "Compiled", "CppCountLines/count_lines.cpp"),
     ("C char-wise",                 "Compiled", "CCountLines/count_lines_in_files_char.c"),
     ("C block-wise",                "Compiled", "CCountLines/count_lines_in_files_block.c"),
+    ("Go",                          "Compiled", "GoCountLines/count_lines.go"),
+    ("Rust",                        "Compiled", "RustCountLines/src/main.rs"),
 ]
 COLOR = {"Shell pipeline": "#2a78d6", "Interpreter / VM": "#eb6834", "Compiled": "#1baf7a"}
 TEXT, MUTED, GRID = "#0b0b0b", "#52514e", "#e4e3df"
@@ -46,7 +48,7 @@ sizes = [r[0] for r in rows]
 colors = [COLOR[r[2]] for r in rows]
 
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 12})
-fig, ax = plt.subplots(figsize=(11, 5.2), dpi=200)
+fig, ax = plt.subplots(figsize=(11, 6), dpi=200)
 fig.patch.set_facecolor("white")
 ax.set_facecolor("white")
 
