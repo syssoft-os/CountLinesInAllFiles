@@ -13,6 +13,7 @@ cd "$REPO"
 gcc -O3 -o "$B/c_char"     CCountLines/count_lines_in_files_char.c
 gcc     -o "$B/c_char_O0"  CCountLines/count_lines_in_files_char.c
 gcc -O3 -o "$B/c_block"    CCountLines/count_lines_in_files_block.c
+gcc -O3 -DBUFFER_SIZE=65536 -o "$B/c_block64" CCountLines/count_lines_in_files_block.c
 g++ -O3 -std=c++17 -o "$B/cpp"    CppCountLines/count_lines.cpp
 g++     -std=c++17 -o "$B/cpp_O0" CppCountLines/count_lines.cpp
 mkdir -p "$B/java" "$B/javap"
@@ -41,7 +42,8 @@ for rep in $(seq "$REPS"); do
   "$R" 'C++ -O3'                      "$B/cpp"       "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'C char-wise -O0'              "$B/c_char_O0" "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'C char-wise -O3'              "$B/c_char"    "$L" '.*\.c$'                        >> "$OUT"; sleep 2
-  "$R" 'C block-wise -O3'             "$B/c_block"   "$L" '.*\.c$'                        >> "$OUT"; sleep 2
+  "$R" 'C block-wise 4 KB -O3'        "$B/c_block"   "$L" '.*\.c$'                        >> "$OUT"; sleep 2
+  "$R" 'C block-wise 64 KB -O3'       "$B/c_block64" "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'Go'                           "$B/go"        "$L" '.*\.c$'                        >> "$OUT"; sleep 2
   "$R" 'Rust --release'               "$B/rust"      "$L" '.*\.c$'                        >> "$OUT"; sleep 2
 done

@@ -6,7 +6,9 @@
 #include <sys/stat.h>
 #include <regex.h>
 
-#define BUFFER_SIZE 4096  // Define the size of the buffer
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 4096  // Size of the read buffer; override with -DBUFFER_SIZE=65536
+#endif
 
 long countLines(const char *fileName) {
     FILE *file = fopen(fileName, "r");
